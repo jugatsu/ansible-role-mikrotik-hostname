@@ -1,0 +1,10 @@
+# Vagrant
+.vagrant
+
+# Packer
+packer_cache
+output/virtualbox*
+box/*.box
+
+# Test-kitchen
+.kitchen

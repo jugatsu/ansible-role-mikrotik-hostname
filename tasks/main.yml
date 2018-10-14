@@ -1,0 +1,16 @@
+---
+# tasks file for ansible-role-mikrotik-hostname
+
+- name: Get hostname.
+  routeros_command:
+    commands: :put [/system identity get value-name=name]
+  register: hostname_result
+
+- name: Ensure hostname is configured.
+  routeros_command:
+    commands:
+      - /system identity set name={{ mikrotik_hostname }}
+    wait_for:
+      - result[0] contains ''
+  when: mikrotik_hostname not in hostname_result.stdout_lines[0]
+  changed_when: True
