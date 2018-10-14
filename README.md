@@ -26,6 +26,17 @@ Example Playbook
     - { role: ansible-role-mikrotik-hostname }
 ```
 
+How to test role
+----------------
+
+Install pipenv (https://github.com/pypa/pipenv) and use this commands:
+
+```bash
+pipenv install
+pipenv shell
+vagrant up --provision
+```
+
 License
 -------
 
